@@ -1,0 +1,21 @@
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.1); /* Slightly opaque white background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    backdrop-filter: blur(10px); /* Frosted-glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  }
+  
+  .card-img-top {
+    transition: transform 0.3s ease-in-out; /* Smooth zoom-in effect for the image */
+  }
+  
+  .card-img-top:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  .star-rating {
+    font-size: 1.2rem;
+  }
+  

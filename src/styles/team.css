@@ -1,0 +1,113 @@
+.card-slider-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.slick-slide {
+  padding: 0 10px; /* Add gap between cards */
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  background: rgba(49, 48, 48, 0.1); /* Transparent background */
+  backdrop-filter: blur(10px);           /* Glassmorphism effect */
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  color: #fff !important; 
+  background-color: rgb(45, 19, 61) !important;
+  position: relative;
+  height: 300px !important; /* Set a fixed height for the cards */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card .card-content {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+.card h3 {
+  margin-top: 20px;
+  font-size: 1.4em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.card p {
+  font-size: 1em;
+  color: #d1d1d1;
+  margin-top: 10px;
+}
+
+.card .flip-card {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  perspective: 1000px; /* Create perspective for the flip effect */
+}
+
+.card .flip-card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg); /* Initial state */
+}
+
+.card .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg); /* Flip the card */
+}
+
+.card .flip-card-front, .card .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back side of the card when flipped */
+}
+
+.card .flip-card-front {
+  background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .flip-card-back {
+  background: rgba(255, 255, 255, 0.2); 
+  color: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg); /* Position the back side */
+}
+
+.card img:hover {
+  transform: scale(1.1); /* Zoom effect on image hover */
+}
+
+.card .card-content {
+  z-index: 2; /* Keep the content on top */
+}

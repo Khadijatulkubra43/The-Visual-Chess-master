@@ -1,0 +1,124 @@
+/* Base styles */
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  /* background: rgba(28, 28, 77, 0.8); */
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+}
+
+/* Logo styles */
+.custom-logo img {
+  width: 140px; /* Default width */
+  height: auto; /* Maintain aspect ratio */
+  transition: all 0.3s ease;
+  filter: brightness(1); /* Default brightness */
+}
+
+/* Responsive styles for logo */
+@media (max-width: 992px) {
+  .custom-logo img {
+    width: 120px; /* Slightly smaller for smaller screens */
+    filter: brightness(1.3); /* Slightly increase brightness */
+  }
+}
+
+/* Navbar links */
+.custom-nav-links .nav-link {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.custom-nav-links .nav-link:hover {
+  color: #a259ff;
+}
+
+/* Get Started Button */
+.get-started-btn {
+  background-color: rgba(162, 89, 255, 0.8); /* Semi-transparent purple */
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background-color: rgba(162, 89, 255, 1); /* Fully opaque on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .custom-navbar {
+    height: auto;
+    background: linear-gradient(135deg, rgba(50, 25, 150, 0.8), rgba(28, 28, 77, 0.8)); /* Gradient with dark purple-blue */
+  }
+
+  .get-started-btn {
+    width: 100%; /* Full-width for mobile */
+    margin: 10px 0;
+    padding: 12px 0; /* Increase padding for better touch target */
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .custom-nav-links .nav-link {
+    margin: 5px 0;
+    text-align: center;
+ 
+  }
+
+  /* Adjust logo for smaller screens */
+  .custom-logo img {
+    filter: brightness(1.5); /* Brighter for better visibility */
+    width: 100px; /* Further reduce size for very small screens */
+  }
+}
+
+/* Additional smaller screen adjustments */
+@media (max-width: 576px) {
+  .custom-navbar {
+    padding: 10px;
+  }
+
+  .get-started-btn {
+    width: 90%;
+    margin: 15px auto;
+    display: block;
+  }
+
+  .custom-logo img {
+    width: 90px;
+    filter: brightness(1.8); /* Maximum brightness */
+  }
+}
+/* Logo styles */
+.custom-logo img {
+  width: 140px; /* Default width */
+  height: auto; /* Maintain aspect ratio */
+  transition: all 0.3s ease;
+  filter: brightness(1); /* Default brightness */
+  margin-left: 120px; /* Add some margin to the left to shift it to the right */
+}
+
+/* Responsive styles for logo */
+@media (max-width: 992px) {
+  .custom-logo img {
+    width: 120px; /* Slightly smaller for smaller screens */
+    filter: brightness(1.3); /* Slightly increase brightness */
+    margin-left: 15px; /* Reduce margin on smaller screens */
+  }
+}
+
+/* Additional smaller screen adjustments */
+@media (max-width: 576px) {
+  .custom-logo img {
+    width: 90px; /* Further reduce size for very small screens */
+    filter: brightness(1.8); /* Maximum brightness */
+    margin-left: 10px; /* Adjust margin for small screens */
+  }
+}
