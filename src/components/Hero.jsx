@@ -79,137 +79,133 @@ return (
     {/* Hero Section */}
     <section style={{ padding: "4rem 0" }}>
       <Container>
-        <Row className="align-items-center justify-content-center text-white">
-          <Col lg={6} className="text-center text-lg-start mb-4">
-            <div
-              style={{
-                background: "#160A33",
-                color: "white",
-                padding: "0.5rem 1rem",
-                display: "inline-block",
-                fontSize: "1.5rem",
-                fontWeight: "bold",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                borderRadius: "0.5rem",
-                whiteSpace: "nowrap",
-                marginLeft: "140px",
-              }}
-              className="d-none d-lg-inline-block"
-              data-aos="fade-right"
-            >
-              WELCOME TO
-            </div>
-            <h2
-              className="mt-4 text-white"
-              style={{
-                fontSize: "3rem",
-                fontWeight: "bold",
-                marginLeft: "140px",
-              }}
-              className="d-none d-lg-block"
-              data-aos="fade-right"
-            >
-              The Visual Chess
-            </h2>
-            <p
-              className="mt-3 text-white"
-              style={{ marginLeft: "140px" }}
-              className="d-none d-lg-block"
-              data-aos="fade-right"
-            >
-              Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
-              Malesuada adipiscing sagittis vel nulla.
-            </p>
-            <div className="mt-4" style={{ marginLeft: "140px" }}>
-              <div className="d-flex justify-content-center justify-content-lg-start gap-3"
-                data-aos="fade-down"
-              >
-                <a
-                  href="#"
-                  className="p-3"
-                  style={{
-                    background: "#160A33",
-                    borderRadius: "50%",
-                    transition: "box-shadow 0.3s ease",
-                  }}
-                  title="LinkedIn"
-                >
-                  <FaLinkedin
-                    style={{ color: "#bebae0", fontSize: "1.5rem" }}
-                  />
-                </a>
-                <a
-                  href="#"
-                  className="p-3"
-                  style={{
-                    background: "#160A33",
-                    borderRadius: "50%",
-                    transition: "box-shadow 0.3s ease",
-                  }}
-                  title="Facebook"
-                >
-                  <FaFacebook
-                    style={{ color: "#bebae0", fontSize: "1.5rem" }}
-                  />
-                </a>
-                <a
-                  href="#"
-                  className="p-3"
-                  style={{
-                    background: "#160A33",
-                    borderRadius: "50%",
-                    transition: "box-shadow 0.3s ease",
-                  }}
-                  title="Instagram"
-                >
-                  <FaInstagram
-                    style={{ color: "#bebae0", fontSize: "1.5rem" }}
-                  />
-                </a>
-                <a
-                  href="#"
-                  className="p-3"
-                  style={{
-                    background: "#160A33",
-                    borderRadius: "50%",
-                    transition: "box-shadow 0.3s ease",
-                  }}
-                  title="WhatsApp"
-                >
-                  <FaWhatsapp
-                    style={{ color: "#bebae0", fontSize: "1.5rem" }}
-                  />
-                </a>
-                <a
-                  href="#"
-                  className="p-3"
-                  style={{
-                    background: "#160A33",
-                    borderRadius: "50%",
-                    transition: "box-shadow 0.3s ease",
-                  }}
-                  title="Contact"
-                >
-                  <FaPhoneAlt
-                    style={{ color: "#bebae0", fontSize: "1.5rem" }}
-                  />
-                </a>
-              </div>
-            </div>
-          </Col>
-          <Col lg={6} className="text-center">
-            <img
-              src={Logo}
-              alt="Logo"
-              className="img-fluid"
-              data-aos="fade-left"
-              style={{
-                maxHeight: "400px",
-                borderRadius: "0.5rem",
-              }}
-            />
-          </Col>
-        </Row>
+       <Row className="align-items-center justify-content-center text-white">
+  <Col lg={6} md={12} className="text-center text-lg-start mb-4">
+    <div
+      style={{
+        background: "#160A33",
+        color: "white",
+        padding: "0.5rem 1rem",
+        display: "inline-block",
+        fontSize: "1.5rem",
+        fontWeight: "bold",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        borderRadius: "0.5rem",
+        whiteSpace: "nowrap",
+      }}
+      className="d-inline-block mb-3"
+      data-aos="fade-right"
+    >
+      WELCOME TO
+    </div>
+    <h2
+      className="mt-4 text-white"
+      style={{
+        fontSize: "2rem",
+        fontWeight: "bold",
+      }}
+      data-aos="fade-right"
+    >
+      The Visual Chess
+    </h2>
+    <p
+      className="mt-3 text-white"
+      data-aos="fade-right"
+    >
+      Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
+      Malesuada adipiscing sagittis vel nulla.
+    </p>
+    <div className="mt-4">
+      <div className="d-flex justify-content-center justify-content-lg-start gap-3"
+        data-aos="fade-down"
+      >
+        <a
+          href="#"
+          className="p-3"
+          style={{
+            background: "#160A33",
+            borderRadius: "50%",
+            transition: "box-shadow 0.3s ease",
+          }}
+          title="LinkedIn"
+        >
+          <FaLinkedin
+            style={{ color: "#bebae0", fontSize: "1.5rem" }}
+          />
+        </a>
+        <a
+          href="#"
+          className="p-3"
+          style={{
+            background: "#160A33",
+            borderRadius: "50%",
+            transition: "box-shadow 0.3s ease",
+          }}
+          title="Facebook"
+        >
+          <FaFacebook
+            style={{ color: "#bebae0", fontSize: "1.5rem" }}
+          />
+        </a>
+        <a
+          href="#"
+          className="p-3"
+          style={{
+            background: "#160A33",
+            borderRadius: "50%",
+            transition: "box-shadow 0.3s ease",
+          }}
+          title="Instagram"
+        >
+          <FaInstagram
+            style={{ color: "#bebae0", fontSize: "1.5rem" }}
+          />
+        </a>
+        <a
+          href="#"
+          className="p-3"
+          style={{
+            background: "#160A33",
+            borderRadius: "50%",
+            transition: "box-shadow 0.3s ease",
+          }}
+          title="WhatsApp"
+        >
+          <FaWhatsapp
+            style={{ color: "#bebae0", fontSize: "1.5rem" }}
+          />
+        </a>
+        <a
+          href="#"
+          className="p-3"
+          style={{
+            background: "#160A33",
+            borderRadius: "50%",
+            transition: "box-shadow 0.3s ease",
+          }}
+          title="Contact"
+        >
+          <FaPhoneAlt
+            style={{ color: "#bebae0", fontSize: "1.5rem" }}
+          />
+        </a>
+      </div>
+    </div>
+  </Col>
+  <Col lg={6} md={12} className="text-center">
+    <img
+      src={Logo}
+      alt="Logo"
+      className="img-fluid"
+      data-aos="fade-left"
+      style={{
+        maxHeight: "400px",
+        borderRadius: "0.5rem",
+      }}
+    />
+  </Col>
+</Row>
+
         {/* Review Section */}
         <div className="container mt-10">
           <div className="row justify-content-center">
