@@ -79,7 +79,7 @@ return (
     {/* Hero Section */}
     <section style={{ padding: "4rem 0" }}>
       <Container>
- <Row className="align-items-center justify-content-center text-white">
+<Row className="align-items-center justify-content-center text-white">
   <Col lg={6} className="text-center mb-4">
     <div
       style={{
