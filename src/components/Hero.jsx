@@ -80,7 +80,7 @@ return (
     <section style={{ padding: "4rem 0" }}>
       <Container>
  <Row className="align-items-center justify-content-center text-white">
-  <Col lg={6} md={12} className="text-center text-lg-start mb-4">
+  <Col lg={6} className="text-center mb-4">
     <div
       style={{
         background: "#160A33",
@@ -101,7 +101,7 @@ return (
     <h2
       className="mt-4 text-white"
       style={{
-        fontSize: "2rem",
+        fontSize: "3rem",
         fontWeight: "bold",
       }}
       data-aos="fade-right"
@@ -116,83 +116,12 @@ return (
       Malesuada adipiscing sagittis vel nulla.
     </p>
     <div className="mt-4">
-      <div className="d-flex justify-content-center justify-content-lg-start gap-3"
-        data-aos="fade-down"
-      >
-        <a
-          href="#"
-          className="p-3"
-          style={{
-            background: "#160A33",
-            borderRadius: "50%",
-            transition: "box-shadow 0.3s ease",
-          }}
-          title="LinkedIn"
-        >
-          <FaLinkedin
-            style={{ color: "#bebae0", fontSize: "1.5rem" }}
-          />
-        </a>
-        <a
-          href="#"
-          className="p-3"
-          style={{
-            background: "#160A33",
-            borderRadius: "50%",
-            transition: "box-shadow 0.3s ease",
-          }}
-          title="Facebook"
-        >
-          <FaFacebook
-            style={{ color: "#bebae0", fontSize: "1.5rem" }}
-          />
-        </a>
-        <a
-          href="#"
-          className="p-3"
-          style={{
-            background: "#160A33",
-            borderRadius: "50%",
-            transition: "box-shadow 0.3s ease",
-          }}
-          title="Instagram"
-        >
-          <FaInstagram
-            style={{ color: "#bebae0", fontSize: "1.5rem" }}
-          />
-        </a>
-        <a
-          href="#"
-          className="p-3"
-          style={{
-            background: "#160A33",
-            borderRadius: "50%",
-            transition: "box-shadow 0.3s ease",
-          }}
-          title="WhatsApp"
-        >
-          <FaWhatsapp
-            style={{ color: "#bebae0", fontSize: "1.5rem" }}
-          />
-        </a>
-        <a
-          href="#"
-          className="p-3"
-          style={{
-            background: "#160A33",
-            borderRadius: "50%",
-            transition: "box-shadow 0.3s ease",
-          }}
-          title="Contact"
-        >
-          <FaPhoneAlt
-            style={{ color: "#bebae0", fontSize: "1.5rem" }}
-          />
-        </a>
+      <div className="d-flex justify-content-center gap-3" data-aos="fade-down">
+        {/* Social Media Links */}
       </div>
     </div>
   </Col>
-  <Col lg={6} md={12} className="text-center">
+  <Col lg={6} className="text-center">
     <img
       src={Logo}
       alt="Logo"
