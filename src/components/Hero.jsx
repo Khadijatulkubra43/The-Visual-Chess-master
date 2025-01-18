@@ -79,8 +79,8 @@ return (
     {/* Hero Section */}
     <section style={{ padding: "4rem 0" }}>
       <Container>
-   <Row className="align-items-center justify-content-center text-white">
-  <Col lg={6} className="d-flex flex-column align-items-center align-items-lg-start mb-4">
+ <Row className="align-items-center justify-content-center text-white">
+  <Col lg={6} md={12} className="text-center text-lg-start mb-4">
     <div
       style={{
         background: "#160A33",
@@ -93,15 +93,15 @@ return (
         borderRadius: "0.5rem",
         whiteSpace: "nowrap",
       }}
-      className="order-2 order-lg-1 mt-4 mt-lg-0"
+      className="d-inline-block mb-3"
       data-aos="fade-right"
     >
       WELCOME TO
     </div>
     <h2
-      className="mt-4 text-white order-1 order-lg-2"
+      className="mt-4 text-white"
       style={{
-        fontSize: "3rem",
+        fontSize: "2rem",
         fontWeight: "bold",
       }}
       data-aos="fade-right"
@@ -109,14 +109,90 @@ return (
       The Visual Chess
     </h2>
     <p
-      className="mt-3 text-white d-none d-lg-block order-3"
+      className="mt-3 text-white"
       data-aos="fade-right"
     >
       Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
       Malesuada adipiscing sagittis vel nulla.
     </p>
+    <div className="mt-4">
+      <div className="d-flex justify-content-center justify-content-lg-start gap-3"
+        data-aos="fade-down"
+      >
+        <a
+          href="#"
+          className="p-3"
+          style={{
+            background: "#160A33",
+            borderRadius: "50%",
+            transition: "box-shadow 0.3s ease",
+          }}
+          title="LinkedIn"
+        >
+          <FaLinkedin
+            style={{ color: "#bebae0", fontSize: "1.5rem" }}
+          />
+        </a>
+        <a
+          href="#"
+          className="p-3"
+          style={{
+            background: "#160A33",
+            borderRadius: "50%",
+            transition: "box-shadow 0.3s ease",
+          }}
+          title="Facebook"
+        >
+          <FaFacebook
+            style={{ color: "#bebae0", fontSize: "1.5rem" }}
+          />
+        </a>
+        <a
+          href="#"
+          className="p-3"
+          style={{
+            background: "#160A33",
+            borderRadius: "50%",
+            transition: "box-shadow 0.3s ease",
+          }}
+          title="Instagram"
+        >
+          <FaInstagram
+            style={{ color: "#bebae0", fontSize: "1.5rem" }}
+          />
+        </a>
+        <a
+          href="#"
+          className="p-3"
+          style={{
+            background: "#160A33",
+            borderRadius: "50%",
+            transition: "box-shadow 0.3s ease",
+          }}
+          title="WhatsApp"
+        >
+          <FaWhatsapp
+            style={{ color: "#bebae0", fontSize: "1.5rem" }}
+          />
+        </a>
+        <a
+          href="#"
+          className="p-3"
+          style={{
+            background: "#160A33",
+            borderRadius: "50%",
+            transition: "box-shadow 0.3s ease",
+          }}
+          title="Contact"
+        >
+          <FaPhoneAlt
+            style={{ color: "#bebae0", fontSize: "1.5rem" }}
+          />
+        </a>
+      </div>
+    </div>
   </Col>
-  <Col lg={6} className="text-center">
+  <Col lg={6} md={12} className="text-center">
     <img
       src={Logo}
       alt="Logo"
@@ -129,9 +205,7 @@ return (
     />
   </Col>
 </Row>
-
-
-        {/* Review Section */}
+       {/* Review Section */}
         <div className="container mt-10">
           <div className="row justify-content-center">
             <div className="col-md-6 col-lg-3 mb-4">
