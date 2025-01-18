@@ -79,8 +79,8 @@ return (
     {/* Hero Section */}
     <section style={{ padding: "4rem 0" }}>
       <Container>
-     <Row className="align-items-center justify-content-center text-white">
-  <Col lg={6} className="text-center text-lg-start mb-4">
+   <Row className="align-items-center justify-content-center text-white">
+  <Col lg={6} className="d-flex flex-column align-items-center align-items-lg-start mb-4">
     <div
       style={{
         background: "#160A33",
@@ -93,13 +93,13 @@ return (
         borderRadius: "0.5rem",
         whiteSpace: "nowrap",
       }}
-      className="d-inline-block ml-lg-auto mx-auto"
+      className="order-2 order-lg-1 mt-4 mt-lg-0"
       data-aos="fade-right"
     >
       WELCOME TO
     </div>
     <h2
-      className="mt-4 text-white d-none d-lg-block"
+      className="mt-4 text-white order-1 order-lg-2"
       style={{
         fontSize: "3rem",
         fontWeight: "bold",
@@ -109,19 +109,12 @@ return (
       The Visual Chess
     </h2>
     <p
-      className="mt-3 text-white d-none d-lg-block"
+      className="mt-3 text-white d-none d-lg-block order-3"
       data-aos="fade-right"
     >
       Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
       Malesuada adipiscing sagittis vel nulla.
     </p>
-    <div className="mt-4">
-      <div className="d-flex justify-content-center justify-content-lg-start gap-3"
-        data-aos="fade-down"
-      >
-        <!-- Social Icons -->
-      </div>
-    </div>
   </Col>
   <Col lg={6} className="text-center">
     <img
@@ -136,6 +129,8 @@ return (
     />
   </Col>
 </Row>
+
+
         {/* Review Section */}
         <div className="container mt-10">
           <div className="row justify-content-center">
