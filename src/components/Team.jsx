@@ -1,101 +1,51 @@
-import React from "react";
-import Slider from "react-slick";
-import "../styles/team.css"; // Import the updated styles
+import React from 'react';
+import { Carousel, Card, Row, Col } from 'react-bootstrap';
+import '../styles/team.css'; // Assuming you have a separate CSS file for custom styles
+import avt from '../assets/avatar.png'
 
-const CardSlider = () => {
-  const settings = {
-    dots: true,          // Enable navigation dots
-    infinite: true,      // Loop through the cards
-    speed: 500,          // Transition speed
-    slidesToShow: 3,     // Number of cards per slide
-    slidesToScroll: 1,   // Number of cards to scroll at once
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,  // 2 cards per slide on smaller screens
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,  // 1 card per slide on very small screens
-        },
-      },
-    ],
-  };
-
+const TeamSection = () => {
   return (
-    <div className="card-slider-container">
-      <Slider {...settings}>
-        <div className="card">
-          <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <img src="../assets/avatar.png" alt="Card 1" />
-              </div>
-              <div className="flip-card-back">
-                <h3>Intro</h3>
-                <p>Lorem ipsum</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <img src="../assets/avatar.png" alt="Card 2" />
-              </div>
-              <div className="flip-card-back">
-              <h3>Intro</h3>
-              <p>Lorem ipsum</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <img src="../assets/avatar.png" alt="Card 3" />
-              </div>
-              <div className="flip-card-back">
-              <h3>Intro</h3>
-              <p>Lorem ipsum</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <img src="../assets/avatar.png" alt="Card 4" />
-              </div>
-              <div className="flip-card-back">
-              <h3>Intro</h3>
-              <p>Lorem ipsum</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <img src="../assets/avatar.png" alt="Card 5" />
-              </div>
-              <div className="flip-card-back">
-              <h3>Intro</h3>
-              <p>Lorem ipsum</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Slider>
+    <div className="container py-5">
+      <Carousel controls={false} indicators={false} interval={3000}>
+        {/* Render multiple Carousel items for the team members */}
+        {[...Array(Math.ceil(teamMembers.length / 3))].map((_, index) => (
+          <Carousel.Item key={index}>
+            <Row className="d-flex justify-content-center">
+              {teamMembers.slice(index * 3, index * 3 + 3).map((member, i) => (
+                <Col key={i} md={4} className="mb-4">
+                  <Card className="team-card">
+                    <Card.Img
+                      variant="top"
+                      src={avt}
+                      className="team-image"
+                    />
+                    <Card.Body className="team-card-body">
+                      <div className="team-info">
+                        <h5>{member.name}</h5>
+                        <p>{member.designation}</p>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          </Carousel.Item>
+        ))}
+      </Carousel>
     </div>
   );
 };
 
-export default CardSlider;
+const teamMembers = [
+  { name: 'John Doe', designation: 'CEO', image: 'https://via.placeholder.com/200' },
+  { name: 'Jane Smith', designation: 'Lead Developer', image: 'https://via.placeholder.com/200' },
+  { name: 'Mark Lee', designation: 'Designer', image: 'https://via.placeholder.com/200' },
+  { name: 'Sarah Johnson', designation: 'Project Manager', image: 'https://via.placeholder.com/200' },
+  { name: 'James Brown', designation: 'Developer', image: 'https://via.placeholder.com/200' },
+  { name: 'Emily Davis', designation: 'UI/UX Designer', image: 'https://via.placeholder.com/200' },
+  { name: 'Michael Wilson', designation: 'Lead Engineer', image: 'https://via.placeholder.com/200' },
+  { name: 'Sophia Miller', designation: 'QA Engineer', image: 'https://via.placeholder.com/200' },
+  { name: 'David Moore', designation: 'Support Specialist', image: 'https://via.placeholder.com/200' },
+];
+
+export default TeamSection;
