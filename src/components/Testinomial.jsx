@@ -1,55 +1,82 @@
-import React from 'react';
-import { Carousel } from 'react-bootstrap';
-import '../styles/testinomial.css'; // We'll define the glassmorphism styles in this file
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/testinomial.css";
 
 const TestimonialCarousel = () => {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const testimonials = [
+    "To the client’s delight, the app was completed on time, within budget, and according to specifications. Despite working in different time zones, the Geeks of Kolachi team was very proactive in terms of communicating updates and feedback. They were punctual, professional, and skilled throughout.",
+    "The Geeks of Kolachi team went above and beyond to deliver a product that exceeded expectations. Their communication was excellent, and they truly understood our needs.",
+    "Outstanding work! The team demonstrated exceptional technical expertise and a proactive approach, making the project a success.",
+    "A reliable partner who delivered exactly what they promised, within budget and on time.",
+    "Their creativity, dedication, and problem-solving skills made all the difference. Highly recommended!",
+    "Fantastic experience working with the team. They were communicative, responsive, and delivered high-quality results."
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000); // Auto-switch testimonials every 5 seconds
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
   return (
-    <div className="container my-5">
-      <Carousel interval={5000}>
-        <Carousel.Item>
-          <div className="d-flex justify-content-center">
-            <div className="card text-center glassmorphism" style={{ width: '22rem' }}>
-              <img
-                className="card-img-top rounded-circle mx-auto my-3"
-                src="https://via.placeholder.com/150"
-                alt="Reviewer"
-                style={{ width: '100px', height: '100px', objectFit: 'cover' }}
-              />
-              <div className="card-body">
-                <p className="card-text">
-                  "This service has been amazing! I couldn’t be more satisfied with the results."
-                </p>
-                <div className="star-rating">
-                  <span className="text-warning">★★★★★</span>
-                </div>
-                <h5 className="card-title mt-3">John Doe</h5>
-              </div>
-            </div>
+    <div className="testimonial-section text-center">
+      <div
+        className="review-box shadow p-3 mt-3 mx-auto text-left"
+        style={{ maxWidth: "400px", fontSize: "14px" }}
+      >
+        <blockquote className="blockquote text-secondary mb-2">
+          <p>{testimonials[currentTestimonial]}</p><br />
+          <footer className="blockquote-footer">Anonymous</footer>
+        </blockquote>
+        <div className="text-right mt-2">
+          <button
+            className="btn btn-sm btn-outline-secondary mr-2"
+            onClick={() =>
+              setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+            }
+          >
+            ←
+          </button>
+          <button
+            className="btn btn-sm btn-outline-secondary"
+            onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
+          >
+            →
+          </button>
+        </div>
+      </div>
+
+      <div className="circle-wrapper position-relative mx-auto mt-5">
+        {/* Main Circle (Stationary) */}
+        <div className="center-circle">
+          <img
+            src="main-profile.jpg"
+            alt="Main Profile"
+            className="rounded-circle"
+            style={{ width: "100px", height: "100px" }}
+          />
+        </div>
+
+        {/* Orbiting Circles */}
+        {[...Array(5)].map((_, index) => (
+          <div
+            key={index}
+            className="orbiting-circle"
+            style={{
+              transform: `rotate(${index * 72}deg) translate(120px) rotate(-${index * 72}deg)`,
+            }}
+          >
+            <img
+              src={`profile-${index + 1}.jpg`}
+              alt={`Profile ${index + 1}`}
+              className="rounded-circle"
+              style={{ width: "50px", height: "50px" }}
+            />
           </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className="d-flex justify-content-center">
-            <div className="card text-center glassmorphism" style={{ width: '22rem' }}>
-              <img
-                className="card-img-top rounded-circle mx-auto my-3"
-                src="https://via.placeholder.com/150"
-                alt="Reviewer"
-                style={{ width: '100px', height: '100px', objectFit: 'cover' }}
-              />
-              <div className="card-body">
-                <p className="card-text">
-                  "A truly fantastic experience, would highly recommend to anyone in need of a professional."
-                </p>
-                <div className="star-rating">
-                  <span className="text-warning">★★★★★</span>
-                </div>
-                <h5 className="card-title mt-3">Jane Smith</h5>
-              </div>
-            </div>
-          </div>
-        </Carousel.Item>
-        {/* Add more items here as needed */}
-      </Carousel>
+        ))}
+      </div>
     </div>
   );
 };
