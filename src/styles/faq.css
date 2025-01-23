@@ -1,18 +1,12 @@
-.accordion-button {
-  background-color: rgb(79, 5, 79);
-  color:white;
-  font-weight: 500;
-  border: none;
+.faq-section {
+  background-color: #160a33 !important; /* Change to #bebae0 if you prefer that */
+  color: white; /* Text color for readability */
+  padding: 20px;
+  border-radius: 8px;
 }
-
-.accordion-button:not(.collapsed) {
-  color: gray;
-  font-weight: 600;
-  background-color: purple;
+.accordion-item{
+  background-color: #160a33 !important;
 }
-
-.accordion-body {
-  padding: 10px;
-  color: white;
-  background-color: rgb(79, 5, 79);
+.accordion-body{
+  background-color: #160a33 !important;
 }
