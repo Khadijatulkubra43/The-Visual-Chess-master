@@ -1,21 +1,74 @@
-.glassmorphism {
-    background: rgba(255, 255, 255, 0.1); /* Slightly opaque white background */
-    border-radius: 15px; /* Rounded corners */
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    backdrop-filter: blur(10px); /* Frosted-glass effect */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+/* Rotating Wrapper */
+.circle-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotateAll 10s linear infinite; /* Apply rotation to the entire wrapper */
+}
+
+/* Main Circle (Stationary) */
+.center-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Ensure it stays on top */
+}
+
+.center-circle img {
+  border: 3px solid #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Orbiting Circles */
+.orbiting-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+}
+
+.orbiting-circle img {
+  border: 2px solid #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.orbiting-circle img:hover {
+  transform: scale(1.2);
+}
+
+/* Rotation Animation for Orbiting Circles */
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translate(120px) rotate(0deg);
   }
-  
-  .card-img-top {
-    transition: transform 0.3s ease-in-out; /* Smooth zoom-in effect for the image */
+  to {
+    transform: rotate(360deg) translate(120px) rotate(-360deg);
   }
-  
-  .card-img-top:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Apply rotation to the whole wrapper */
+@keyframes rotateAll {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .star-rating {
-    font-size: 1.2rem;
+  to {
+    transform: rotate(360deg);
   }
-  
+}
+
+/* Testimonial Section */
+.review-box {
+  font-size: 0.9rem;
+  margin: 0 auto;
+}
+
+.small-text {
+  font-size: 0.85rem;
+}
+
