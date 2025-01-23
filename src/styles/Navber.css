@@ -50,7 +50,9 @@
 .get-started-btn:hover {
   background-color: rgba(162, 89, 255, 1); /* Fully opaque on hover */
 }
-
+.collapse{
+  visibility: visible !important;
+}
 /* Responsive styles */
 @media (max-width: 992px) {
   .custom-navbar {
@@ -74,7 +76,7 @@
 
   /* Adjust logo for smaller screens */
   .custom-logo img {
-    filter: brightness(1.5); /* Brighter for better visibility */
+    filter: brightness(1.5); 
     width: 100px; /* Further reduce size for very small screens */
   }
 }
