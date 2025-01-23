@@ -1,68 +1,201 @@
-.info-container {
-    width: 320px; /* Adjust width as needed */
-    padding: 20px;
-    background-color: rgb(221, 171, 225);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 250px;
-    float: right;
-  }
-  
-  .info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  
-  .info-icon {
-    font-size: 24px;
-    color: #4A90E2;
-    margin-right: 10px;
-  }
-  
-  .info-title {
-    font-weight: bold;
-    color: black;
-  }
-  
-  .info-text {
-    color: #A8A8A8;
-    margin-left: auto;
-  }
-  .glass-effect {
-    position: relative;
-    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
-    border-radius: 10px; /* Rounded corners for the frosted effect */
-    backdrop-filter: blur(10px); /* Background blur for glass effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .info-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-  }
-  
-  .info-icon {
-    font-size: 24px;
-    margin-right: 10px;
-  }
-  
-  .info-title {
-    font-weight: bold;
-    margin-right: 8px;
-  }
-  
-  .info-text {
-    color: #ddd;
-  }
-  .contact{
-    margin-left: -300px !important;
-  }
+/* Center the form container */
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.contact-section {
+  text-align: center;
+  width: 100%;
+}
+
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.schedule-meeting-btn {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 18px;
+  transition: background 0.3s ease;
+}
+
+.schedule-meeting-btn:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+}
+
+/* Styling for modal */
+.modal-content {
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+.modal-title {
+  font-size: 24px;
+  color: #6a11cb;
+}
+
+/* Let's talk section */
+.lets-talk-section {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.lets-talk-section h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.lets-talk-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Flatpickr styles */
+.flatpickr-wrapper input {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  color: #333;
+  width: 100%;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.flatpickr-wrapper input:focus {
+  border-color: #6a11cb;
+  outline: none;
+}
+/* Contact Form Card Glassmorphism Style */
+.contact-form-card {
+  padding: 20px;
+  backdrop-filter: blur(10px); /* Blur effect for the frosted glass look */
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Light border to enhance the glass effect */
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.card {
+  border-radius: 15px; /* Rounded corners */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px); /* Increased blur for the glass effect */
+}
+
+.schedule-meeting-btn {
+  background-color: rgba(162, 89, 255, 0.8);
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+}
+
+.schedule-meeting-btn:hover {
+  background-color: rgba(162, 89, 255, 0.8);
+}
+
+.lets-talk-section {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.lets-talk-section h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #bebae0;
+}
+
+.lets-talk-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+/* Custom card styling */
+.custom-card {
+  background: linear-gradient(135deg, rgba(21, 3, 43, 0.8), rgba(16, 4, 24, 0.8));
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  max-width: 500px;
+  margin: 20px auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.custom-card-text {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  color: #f4f4f4;
+}
+
+/* Button styling */
+.schedule-meeting-btn {
+  background-color: #f7a35c;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover effect */
+.schedule-meeting-btn:hover {
+  background-color: #f14b35;
+  transform: scale(1.05);
+}
+
+/* Card hover effect */
+.custom-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+/* Custom shadow styling */
+.custom-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Specific shadow color */
+.custom-shadow-black {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.15);
+}
