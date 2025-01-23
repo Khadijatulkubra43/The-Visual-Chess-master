@@ -13,7 +13,7 @@ function Navber() {
       <Container>
         {/* Logo */}
         <Navbar.Brand
-          href="../pages/Home.jsx"
+          href="/"
           className="custom-logo"
         >
           <img
