@@ -1,52 +1,80 @@
-import React, { useState } from 'react';
-import blogPic from '../assets/blogpic.png';
-import '../styles/blog.css'; // You can keep your custom styling if needed
+import React, { useState, useEffect } from 'react';
+import '../styles/blog.css';
+import blog from '../assets/2.png'
+const blogs = [
+  {
+    id: 1,
+    title: 'First Blog Title',
+    detail: 'This is the detail of the first blog.',
+    image: {blog},
+  },
+  {
+    id: 2,
+    title: 'Second Blog Title',
+    detail: 'This is the detail of the second blog.',
+    image: '../assets/2.png',
+  },
+  {
+    id: 3,
+    title: 'Third Blog Title',
+    detail: 'This is the detail of the third blog.',
+    image: '../assets/3.png',
+  },
+  {
+    id: 4,
+    title: 'Fourth Blog Title',
+    detail: 'This is the detail of the fourth blog.',
+    image: {blog},
+  },
+  {
+    id: 5,
+    title: 'Fifth Blog Title',
+    detail: 'This is the detail of the fifth blog.',
+    image: '../assets/2.png',
+  },
+  {
+    id: 6,
+    title: 'Sixth Blog Title',
+    detail: 'This is the detail of the sixth blog.',
+    image: '../assets/3.png',
+  },
+];
 
-function Blog() {
-  const [visiblePosts, setVisiblePosts] = useState(3); // Initially show 3 posts
+const BlogPage = () => {
+  const [currentBlogIndex, setCurrentBlogIndex] = useState(0);
+  const [titleIndex, setTitleIndex] = useState(0);
 
-  const handleShowMore = () => {
-    setVisiblePosts(visiblePosts + 3); // Show 3 more posts when the button is clicked
-  };
+  useEffect(() => {
+    const blogInterval = setInterval(() => {
+      setCurrentBlogIndex((prevIndex) => (prevIndex + 1) % blogs.length);
+    }, 5000);
+
+    const titleInterval = setInterval(() => {
+      setTitleIndex((prevIndex) => (prevIndex + 1) % blogs.length);
+    }, 3000);
+
+    return () => {
+      clearInterval(blogInterval);
+      clearInterval(titleInterval);
+    };
+  }, []);
+
+  const currentBlog = blogs[currentBlogIndex];
+  const currentTitle = blogs[titleIndex].title;
 
   return (
-    <div className="container ">
-      {/* Blog Section */}
-      <div className="container text-center">
+    <div>
+      <div className="container text-center mt-40">
         <div>
-          <p className=" mt-32 inline-block px-3 text-white bg-purple-500 py-1 mb-4 text-lg font-semibold tracking-wider text-dark uppercase rounded-full">
-            OUR BLOGS
+          <p className="inline-block px-3 text-white bg-purple-500 py-1 mb-4 text-lg font-semibold tracking-wider text-dark uppercase rounded-full">
+            Blogs
           </p>
         </div>
         <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-light sm:text-4xl text-center mx-auto">
           <span className="relative inline-block">
-            <svg
-              viewBox="0 0 52 24"
-              fill="#bebae0"
-              className="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-[#bebae0] lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
-            >
-              <defs>
-                <pattern
-                  id="2feffae2-9edf-414e-ab8c-f0e6396a0fc1"
-                  x="0"
-                  y="0"
-                  width=".135"
-                  height=".30"
-                >
-                  <circle cx="1" cy="1" r=".7" />
-                </pattern>
-              </defs>
-              <rect
-                fill="url(#2feffae2-9edf-414e-ab8c-f0e6396a0fc1)"
-                width="52"
-                height="24"
-              />
-            </svg>
             <span className="relative text-light">The</span>
-          </span>{" "}
-          quick, brown fox jumps over a lazy dog
+          </span> quick, brown fox jumps over a lazy dog
         </h2>
-
         <p className="text-base text-light md:text-lg">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           <br />
@@ -54,47 +82,45 @@ function Blog() {
         </p>
       </div>
 
-      {/* Blog Content Section */}
-      <div className="row ml-10">
-        {[...Array(7)].map((_, index) => {
-          if (index < visiblePosts) {
-            return (
-              <div className="col-12 mb-4" key={index}>
-                <div className="d-flex align-items-center">
-                  <div className="me-4">
-                    <img src={blogPic} alt="Blog" className="img-fluid " />
-                  </div>
-                  <div>
-                    <h1 className="text-white text-3xl font-bold mb-10">
-                      Announcing a free plan
-                    </h1>
-                    <p className="text-white text-xl">
-                      At Wake, our mission has always been focused on bringing
-                      openness.
-                    </p>
-                  </div>
+      <div className="blog-page">
+        {/* Latest Blog Title Slider */}
+        <div className="title-slider">
+          <h2 className="text-white text-xl">Latest Blog</h2>
+          <p className="text-white">{currentTitle}</p>
+        </div>
+
+        {/* Main Featured Blog Detail */}
+        <div className="main-featured-blog ">
+          <img src={currentBlog.image} alt={currentBlog.title} />
+          <div className="blog-content">
+            <h1>{currentBlog.title}</h1>
+            <p>{currentBlog.detail}</p>
+          </div>
+        </div>
+
+        {/* All Blogs Section */}
+        <div className="all-blogs">
+          <h2 className="text-left text-3xl text-white font-bold">What Else is Happening?</h2>
+          <p className="text-left mt-2">
+            Read our blogs to know what’s happening
+          </p>
+          <div className="blog-grid mt-8 ">
+            {blogs.map((blog, index) => (
+              <div className="blog-card unique-style glassmorphism1 latest-card" key={blog.id}>
+                <img src={blog.image} alt={blog.title} />
+                <div className="blog-details">
+                  <h3>{blog.title}</h3>
+                  <p>{blog.detail}</p>
                 </div>
               </div>
-            );
-          }
-          return null; // Don't render posts that aren't visible
-        })}
-      </div>
-
-      {/* Read More Button */}
-      {visiblePosts < 7 && (
-        <div className="text-center">
-          <button
-            onClick={handleShowMore}
-            className="btn btn-primary"
-            style={{background: 'rgba(162, 89, 255, 0.8)'}}
-          >
-            Read More
-          </button>
+            ))}
+          </div>
+          <button className="read-more-button">Read More</button>
         </div>
-      )}
+      </div>
     </div>
   );
-}
+};
 
-export default Blog;
+export default BlogPage;
+
