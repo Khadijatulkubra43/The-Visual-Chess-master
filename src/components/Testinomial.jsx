@@ -27,14 +27,17 @@ const TestimonialCarousel = () => {
         style={{ maxWidth: "400px", fontSize: "14px" }}
       >
         <blockquote className="blockquote text-secondary mb-2">
-          <p>{testimonials[currentTestimonial]}</p><br />
+          <p>{testimonials[currentTestimonial]}</p>
+          <br />
           <footer className="blockquote-footer">Anonymous</footer>
         </blockquote>
         <div className="text-right mt-2">
           <button
             className="btn btn-sm btn-outline-secondary mr-2"
             onClick={() =>
-              setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+              setCurrentTestimonial((prev) =>
+                (prev - 1 + testimonials.length) % testimonials.length
+              )
             }
           >
             ←
@@ -52,7 +55,7 @@ const TestimonialCarousel = () => {
         {/* Main Circle (Stationary) */}
         <div className="center-circle">
           <img
-            src="main-profile.jpg"
+            src="../assets/avatar.png"
             alt="Main Profile"
             className="rounded-circle"
             style={{ width: "100px", height: "100px" }}
@@ -63,13 +66,10 @@ const TestimonialCarousel = () => {
         {[...Array(5)].map((_, index) => (
           <div
             key={index}
-            className="orbiting-circle"
-            style={{
-              transform: `rotate(${index * 72}deg) translate(120px) rotate(-${index * 72}deg)`,
-            }}
+            className={`orbiting-circle orbit-${index + 1}`}
           >
             <img
-              src={`profile-${index + 1}.jpg`}
+              src={`../assets/avatar.png?text=${index + 1}`}
               alt={`Profile ${index + 1}`}
               className="rounded-circle"
               style={{ width: "50px", height: "50px" }}
