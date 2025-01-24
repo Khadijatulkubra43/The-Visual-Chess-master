@@ -22,7 +22,7 @@ import "../styles/Hero.css";
 import Team from "./Team";
 import Testinomial from "./Testinomial";
 import FAQ from "./FAQ";
-import Ser from "./Ser";
+
 
 export default function HeroSection() {
   useEffect(() => {
