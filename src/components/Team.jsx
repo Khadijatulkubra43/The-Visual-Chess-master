@@ -37,15 +37,15 @@ const TeamSection = () => {
 };
 
 const teamMembers = [
-  { name: 'John Doe', designation: 'CEO', image: 'https://via.placeholder.com/200' },
-  { name: 'Jane Smith', designation: 'Lead Developer', image: 'https://via.placeholder.com/200' },
-  { name: 'Mark Lee', designation: 'Designer', image: 'https://via.placeholder.com/200' },
-  { name: 'Sarah Johnson', designation: 'Project Manager', image: 'https://via.placeholder.com/200' },
-  { name: 'James Brown', designation: 'Developer', image: 'https://via.placeholder.com/200' },
-  { name: 'Emily Davis', designation: 'UI/UX Designer', image: 'https://via.placeholder.com/200' },
-  { name: 'Michael Wilson', designation: 'Lead Engineer', image: 'https://via.placeholder.com/200' },
-  { name: 'Sophia Miller', designation: 'QA Engineer', image: 'https://via.placeholder.com/200' },
-  { name: 'David Moore', designation: 'Support Specialist', image: 'https://via.placeholder.com/200' },
+  { name: 'John Doe', designation: 'CEO', image: '../assets/avatar.png' },
+  { name: 'Jane Smith', designation: 'Lead Developer', image: '../assets/avatar.png' },
+  { name: 'Mark Lee', designation: 'Designer', image: '../assets/avatar.png' },
+  { name: 'Sarah Johnson', designation: 'Project Manager', image: '../assets/avatar.png' },
+  { name: 'James Brown', designation: 'Developer', image: '../assets/avatar.png' },
+  { name: 'Emily Davis', designation: 'UI/UX Designer', image: '../assets/avatar.png' },
+  { name: 'Michael Wilson', designation: 'Lead Engineer', image: '../assets/avatar.png' },
+  { name: 'Sophia Miller', designation: 'QA Engineer', image: '../assets/avatar.png' },
+  { name: 'David Moore', designation: 'Support Specialist', image: '../assets/avatar.png' },
 ];
 
 export default TeamSection;

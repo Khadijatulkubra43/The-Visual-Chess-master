@@ -382,7 +382,7 @@ export default function Portfolio() {
                               background: "rgba(162, 89, 255, 1)",
                             }}
                           >
-                            Subscribes
+                            Subscribe
                           </button>
                         </form>
                       </div>

@@ -95,7 +95,7 @@
 }
 /*Service*/
 .glassmorphism-effect {
-   background: rgba(75, 74, 74, 0.1);
+   /* background: rgba(75, 74, 74, 0.1); */
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
@@ -103,12 +103,16 @@
 }
 
 .latest-card {
-  transition: none; /* Remove hover scaling and shadow effects */
+  transition: none; 
   position: relative;
+}
+.latest-card:hover {
+  background: linear-gradient(to right, rgba(48, 16, 70, 0.5), rgba(48, 16, 70, 0) 50%, rgba(48, 16, 70, 0.5)); /* Darker sides, lighter center */
+  transition: background 0.3s ease; /* Smooth transition */
 }
 
 .glass-effect {
-   background: rgba(75, 74, 74, 0.1);
+   /* background: rgba(75, 74, 74, 0.1); */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 1;
@@ -709,4 +713,41 @@ h5, h6, p {
 }
 #card1{
   height: 100% !important;
+}
+/*Marquee*/
+.marquee {
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  /* background-color: #160a33; */
+  background: transparent;
+  color: white;
+  font-weight: 700;
+  padding: 10px 0; /* Padding for spacing */
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-left: 100%;
+  font-size: 3vw; /* Responsive font size */
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-content {
+    font-size: 4vw; /* Larger font size for smaller screens */
+    animation: scroll 15s linear infinite; /* Slower animation for smaller screens */
+  }
 }

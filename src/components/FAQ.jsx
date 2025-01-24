@@ -194,7 +194,7 @@ const FAQSection = () => {
               innovation, and transparency. In addition, evaluate their team’s
               scalability to handle your project size and complexity. Consider
               their cultural fit with your organization to ensure a smooth
-              collaboration experiences.
+              collaboration experience.
             </div>
           </div>
         </div>

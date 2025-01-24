@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  // Function to scroll to the top
+  // Function to scroll to the top smoothly
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -77,7 +77,8 @@ export default function Footer() {
       <div className="absolute bottom-4 right-4 flex justify-center">
         <button
           onClick={scrollToTop}
-          className="p-3 bg-transparent text-white rounded-full text-5xl   hover:bg-blue-500 hover:border-blue-500 transition duration-300"
+          className="p-3 bg-transparent text-white rounded-full text-4xl hover:bg-blue-500 hover:border-blue-500 transition duration-300"
+          aria-label="Scroll to top"
         >
           &#8593; {/* Arrow symbol */}
         </button>
