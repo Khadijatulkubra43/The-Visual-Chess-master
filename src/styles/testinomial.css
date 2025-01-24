@@ -1,74 +1,55 @@
-/* Rotating Wrapper */
 .circle-wrapper {
   position: relative;
   width: 300px;
   height: 300px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: rotateAll 10s linear infinite; /* Apply rotation to the entire wrapper */
 }
 
-/* Main Circle (Stationary) */
 .center-circle {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10; /* Ensure it stays on top */
+  z-index: 10;
+  border-radius: 50%; 
+  border: 5px solid white;
 }
 
-.center-circle img {
-  border: 3px solid #f8f9fa;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Orbiting Circles */
 .orbiting-circle {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform-origin: center;
+  transform: translate(-50%, -50%);
+  animation: rotate 10s linear infinite;
+  border-radius: 50%;
+  border: 5px solid white;
 }
 
-.orbiting-circle img {
-  border: 2px solid #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+.orbit-1 {
+  animation-delay: 0s;
 }
 
-.orbiting-circle img:hover {
-  transform: scale(1.2);
+.orbit-2 {
+  animation-delay: 2s;
 }
 
-/* Rotation Animation for Orbiting Circles */
-@keyframes orbit {
-  from {
+.orbit-3 {
+  animation-delay: 4s;
+}
+
+.orbit-4 {
+  animation-delay: 6s;
+}
+
+.orbit-5 {
+  animation-delay: 8s;
+}
+
+@keyframes rotate {
+  0% {
     transform: rotate(0deg) translate(120px) rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg) translate(120px) rotate(-360deg);
   }
 }
-
-/* Apply rotation to the whole wrapper */
-@keyframes rotateAll {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Testimonial Section */
-.review-box {
-  font-size: 0.9rem;
-  margin: 0 auto;
-}
-
-.small-text {
-  font-size: 0.85rem;
-}
-
