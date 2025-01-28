@@ -29,50 +29,23 @@ export default function HeroSection() {
     AOS.init({
       offset: 120,
       delay: 0,
-      duration: 3000,
+      duration: 2000,
       easing: "ease",
     });
   }, []);
-  // Review section state and logic
-  const [downloads, setDownloads] = useState(0);
-  const [subscribers, setSubscribers] = useState(0);
-  const [users, setUsers] = useState(0);
-  const [cookies, setCookies] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDownloads((prev) => (prev < 120 ? prev + 1 : 120));
-      setSubscribers((prev) => (prev < 340 ? prev + 1 : 340));
-      setUsers((prev) => (prev < 25 ? prev + 1 : 25));
-      setCookies((prev) => (prev < 222 ? prev + 1 : 222));
-    }, 20);
-
-    return () => clearInterval(interval);
-  }, []);
   //history
+  const [scrollHeight, setScrollHeight] = useState(0);
+
+  const handleScroll = () => {
+    const scrollTop = window.scrollY; // Amount scrolled
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight; // Total scrollable height
+    const scrollPercent = (scrollTop / documentHeight) * 100; // Calculate percentage
+    setScrollHeight(scrollPercent);
+  };
+
   useEffect(() => {
-    const updateScrollProgress = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercentage = (scrollTop / docHeight) * 100;
-
-      const scrollIndicator = document.getElementById("home-works-scroll");
-      scrollIndicator.style.height = `${scrollPercentage}%`;
-
-      if (scrollPercentage > 0) {
-        scrollIndicator.classList.add("solid-line");
-        scrollIndicator.classList.remove("dotted-line");
-      } else {
-        scrollIndicator.classList.remove("solid-line");
-        scrollIndicator.classList.add("dotted-line");
-      }
-    };
-
-    window.addEventListener("scroll", updateScrollProgress);
-
-    return () => {
-      window.removeEventListener("scroll", updateScrollProgress);
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -80,149 +53,150 @@ export default function HeroSection() {
       {/* Hero Section */}
       <section style={{ padding: "4rem 0" }}>
         <Container>
-        <Row className="align-items-center justify-content-center text-white">
-        <Col lg={6} className="text-center text-lg-start mb-4">
-          <div
-            style={{
-              background: "#160A33",
-              color: "white",
-              padding: "0.5rem 1rem",
-              display: "inline-block",
-              fontSize: "1.5rem",
-              fontWeight: "bold",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
-              borderRadius: "0.5rem",
-              whiteSpace: "nowrap",
-              marginLeft: "140px",
-            }}
-            className="d-none d-lg-inline-block" // Hide on smaller screens
-          >
-            WELCOME TO
-          </div>
-          <h2
-            className="mt-4 text-white"
-            style={{
-              fontSize: "3rem",
-              fontWeight: "bold",
-              marginLeft: "140px",
-            }}
-            className="d-none d-lg-block" // Hide on smaller screens
-          >
-            The Visual Chess
-          </h2>
-          <p
-            className="mt-3 text-white"
-            style={{ marginLeft: "140px" }}
-            className="d-none d-lg-block"
-          >
-            Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
-            Malesuada adipiscing sagittis vel nulla.
-          </p>
-          <div className="mt-4" style={{ marginLeft: "140px" }}>
-            <div className="d-flex justify-content-center justify-content-lg-start gap-3">
-              <a
-                href="#"
-                className="p-3"
+          <Row className="align-items-center justify-content-center text-white">
+            <Col lg={6} className="text-center text-lg-start mb-4">
+              <div
                 style={{
                   background: "#160A33",
-                  borderRadius: "50%",
-                  transition: "box-shadow 0.3s ease",
+                  color: "white",
+                  padding: "0.5rem 1rem",
+                  display: "inline-block",
+                  fontSize: "1.5rem",
+                  fontWeight: "bold",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  borderRadius: "0.5rem",
+                  whiteSpace: "nowrap",
+                  marginLeft: "140px",
                 }}
-                title="LinkedIn"
+                className="d-none d-lg-inline-block" // Hide on smaller screens
               >
-                <FaLinkedin
-                  style={{ color: "#bebae0", fontSize: "1.5rem" }}
-                />
-              </a>
-              <a
-                href="#"
-                className="p-3"
+                WELCOME TO
+              </div>
+              <h2
+                className="mt-4 text-white"
                 style={{
-                  background: "#160A33",
-                  borderRadius: "50%",
-                  transition: "box-shadow 0.3s ease",
+                  fontSize: "3rem",
+                  fontWeight: "bold",
+                  marginLeft: "140px",
                 }}
-                title="Facebook"
+                className="d-none d-lg-block" // Hide on smaller screens
               >
-                <FaFacebook
-                  style={{ color: "#bebae0", fontSize: "1.5rem" }}
-                />
-              </a>
-              <a
-                href="#"
-                className="p-3"
+                The Visual Chess
+              </h2>
+              <p
+                className="mt-3 text-white"
+                style={{ marginLeft: "140px" }}
+                className="d-none d-lg-block"
+              >
+                Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
+                Malesuada adipiscing sagittis vel nulla.
+              </p>
+              <div className="mt-4" style={{ marginLeft: "140px" }}>
+                <div className="d-flex justify-content-center justify-content-lg-start gap-3">
+                  <a
+                    href="#"
+                    className="p-3"
+                    style={{
+                      background: "#160A33",
+                      borderRadius: "50%",
+                      transition: "box-shadow 0.3s ease",
+                    }}
+                    title="LinkedIn"
+                  >
+                    <FaLinkedin
+                      style={{ color: "#bebae0", fontSize: "1.5rem" }}
+                    />
+                  </a>
+                  <a
+                    href="#"
+                    className="p-3"
+                    style={{
+                      background: "#160A33",
+                      borderRadius: "50%",
+                      transition: "box-shadow 0.3s ease",
+                    }}
+                    title="Facebook"
+                  >
+                    <FaFacebook
+                      style={{ color: "#bebae0", fontSize: "1.5rem" }}
+                    />
+                  </a>
+                  <a
+                    href="#"
+                    className="p-3"
+                    style={{
+                      background: "#160A33",
+                      borderRadius: "50%",
+                      transition: "box-shadow 0.3s ease",
+                    }}
+                    title="Instagram"
+                  >
+                    <FaInstagram
+                      style={{ color: "#bebae0", fontSize: "1.5rem" }}
+                    />
+                  </a>
+                  <a
+                    href="#"
+                    className="p-3"
+                    style={{
+                      background: "#160A33",
+                      borderRadius: "50%",
+                      transition: "box-shadow 0.3s ease",
+                    }}
+                    title="WhatsApp"
+                  >
+                    <FaWhatsapp
+                      style={{ color: "#bebae0", fontSize: "1.5rem" }}
+                    />
+                  </a>
+                  <a
+                    href="#"
+                    className="p-3"
+                    style={{
+                      background: "#160A33",
+                      borderRadius: "50%",
+                      transition: "box-shadow 0.3s ease",
+                    }}
+                    title="Contact"
+                  >
+                    <FaPhoneAlt
+                      style={{ color: "#bebae0", fontSize: "1.5rem" }}
+                    />
+                  </a>
+                </div>
+              </div>
+            </Col>
+            <Col lg={6} className="text-center">
+              <img
+                src={Logo}
+                alt="Logo"
+                className="img-fluid"
                 style={{
-                  background: "#160A33",
-                  borderRadius: "50%",
-                  transition: "box-shadow 0.3s ease",
+                  maxHeight: "400px",
+                  borderRadius: "0.5rem",
                 }}
-                title="Instagram"
-              >
-                <FaInstagram
-                  style={{ color: "#bebae0", fontSize: "1.5rem" }}
-                />
-              </a>
-              <a
-                href="#"
-                className="p-3"
-                style={{
-                  background: "#160A33",
-                  borderRadius: "50%",
-                  transition: "box-shadow 0.3s ease",
-                }}
-                title="WhatsApp"
-              >
-                <FaWhatsapp
-                  style={{ color: "#bebae0", fontSize: "1.5rem" }}
-                />
-              </a>
-              <a
-                href="#"
-                className="p-3"
-                style={{
-                  background: "#160A33",
-                  borderRadius: "50%",
-                  transition: "box-shadow 0.3s ease",
-                }}
-                title="Contact"
-              >
-                <FaPhoneAlt
-                  style={{ color: "#bebae0", fontSize: "1.5rem" }}
-                />
-              </a>
+              />
+            </Col>
+          </Row>
+          {/*Marquee */}
+          <div className="marquee">
+            <div className="marquee-content">
+              ★ Web Development ★ Mobile Development ★ Staff Augmentation★ Digital Marketing ★ Graphic Designer ★ UI/UX Designer ★
             </div>
           </div>
-        </Col>
-        <Col lg={6} className="text-center">
-          <img
-            src={Logo}
-            alt="Logo"
-            className="img-fluid"
-            style={{
-              maxHeight: "400px",
-              borderRadius: "0.5rem",
-            }}
-          />
-        </Col>
-      </Row>
-      {/*Marquee */}
-      <div className="marquee">
-      <div className="marquee-content">
-        ★ Web Development ★ Mobile Development ★ Staff Augmentation★ Digital Marketing ★ Graphic Designer ★ UI/UX Designer ★
-      </div>
-    </div>
           {/*Service section*/}
           <section className="relative z-10 overflow-hidden justify-center px-4 pb-12 pt-20 lg:pb-90 lg:pt-120">
             <div className="container text-center">
               <div>
                 <p
                   className="inline-block px-3 text-white bg-purple-500 py-1 mb-4 text-lg 
-                font-semibold tracking-wider text-dark uppercase rounded-full"
-                 
+                  font-semibold tracking-wider text-dark uppercase rounded-full transition-all
+                   duration-300 ease-in-out"
                 >
                   Services
                 </p>
               </div>
+
               <h2
                 className="max-w-lg mb-6 font-sans text-3xl font-bold 
               leading-none tracking-tight text-light sm:text-4xl text-center mx-auto"
@@ -303,11 +277,11 @@ export default function HeroSection() {
           {/*Why us */}
           <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
             <div>
-              <p
-                className="inline-block px-3 bg-[#bebae0] py-px mb-4 text-lg font-semibold 
-              tracking-wider text-[#160a33] uppercase rounded-full"
-                data-aos="fade-right"
-              >
+            <p
+            className="inline-block px-3 text-white bg-purple-500 py-1 mb-4 text-lg 
+            font-semibold tracking-wider text-dark uppercase rounded-full transition-all
+             duration-300 ease-in-out"
+          >
                 Why Us?
               </p>
             </div>
@@ -352,178 +326,178 @@ export default function HeroSection() {
             </p>
           </div>
           <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto justify-center">
-          <div className="relative p-6 md:p-16">
-            {/* Grid */}
-            <div className="relative z-10 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
-              <div className="mb-10 lg:mb-0 lg:col-span-6 lg:col-start-8 lg:order-2">
-                <h2 className="text-2xl text-white font-bold sm:text-3xl dark:text-white" data-aos="fade-left">
-                  Fully customizable rules to match your unique needs
-                </h2>
-        
-                {/* Tab Navs */}
-                <nav className="grid gap-4 mt-5 md:mt-10" aria-label="Tabs" role="tablist">
-                  <button
-                    type="button"
-                    className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start p-4 md:p-5 rounded-xl dark:hs-tab-active:bg-neutral-700 active"
-                    id="tabs-with-card-item-1"
-                    data-hs-tab="#tabs-with-card-1"
-                    aria-controls="tabs-with-card-1"
-                    role="tab"
-                  >
-                    <span className="flex">
-                      <svg
-                        className="flex-shrink-0 mt-2 size-6 md:size-7 hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-                        <path d="M5 3v4" />
-                        <path d="M19 17v4" />
-                        <path d="M3 5h4" />
-                        <path d="M17 19h4" />
-                      </svg>
-                      <span className="grow ms-6">
-                        <span className="block text-lg font-semibold hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white" data-aos="fade-left">
-                          Advanced tools
-                        </span>
-                        <span className="block mt-1 text-white dark:hs-tab-active:text-[#bebae0] dark:text-white" data-aos="fade-left">
-                          Use Preline thoroughly thought and automated libraries to manage your businesses.
-                        </span>
-                      </span>
-                    </span>
-                  </button>
-        
-                  <button
-                    type="button"
-                    className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-[#bebae0] p-4 md:p-5 rounded-xl dark:hs-tab-active:bg-neutral-700 "
-                    id="tabs-with-card-item-2"
-                    data-hs-tab="#tabs-with-card-2"
-                    aria-controls="tabs-with-card-2"
-                    role="tab"
-                  >
-                    <span className="flex">
-                      <svg
-                        className="flex-shrink-0 mt-2 size-6 md:size-7 hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                      >
-                        <path d="m12 14 4-4" />
-                        <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-                      </svg>
-                      <span className="grow ms-6">
-                        <span className="block text-lg font-semibold hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white" data-aos="fade-left">
-                          Smart dashboards
-                        </span>
-                        <span className="block mt-1 text-white dark:hs-tab-active:text-[#bebae0] dark:text-white" data-aos="fade-left">
-                          Quickly Preline sample components, copy-paste codes, and start right off.
+            <div className="relative p-6 md:p-16">
+              {/* Grid */}
+              <div className="relative z-10 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
+                <div className="mb-10 lg:mb-0 lg:col-span-6 lg:col-start-8 lg:order-2">
+                  <h2 className="text-2xl text-white font-bold sm:text-3xl dark:text-white" data-aos="fade-left">
+                    Fully customizable rules to match your unique needs
+                  </h2>
+
+                  {/* Tab Navs */}
+                  <nav className="grid gap-4 mt-5 md:mt-10" aria-label="Tabs" role="tablist">
+                    <button
+                      type="button"
+                      className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start p-4 md:p-5 rounded-xl dark:hs-tab-active:bg-neutral-700 active"
+                      id="tabs-with-card-item-1"
+                      data-hs-tab="#tabs-with-card-1"
+                      aria-controls="tabs-with-card-1"
+                      role="tab"
+                    >
+                      <span className="flex">
+                        <svg
+                          className="flex-shrink-0 mt-2 size-6 md:size-7 hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                          <path d="M5 3v4" />
+                          <path d="M19 17v4" />
+                          <path d="M3 5h4" />
+                          <path d="M17 19h4" />
+                        </svg>
+                        <span className="grow ms-6">
+                          <span className="block text-lg font-semibold hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white" data-aos="fade-left">
+                            Advanced tools
+                          </span>
+                          <span className="block mt-1 text-white dark:hs-tab-active:text-[#bebae0] dark:text-white" data-aos="fade-left">
+                            Use Preline thoroughly thought and automated libraries to manage your businesses.
+                          </span>
                         </span>
                       </span>
-                    </span>
-                  </button>
-        
-                  <button
-                    type="button"
-                    className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-[#bebae0] p-4 md:p-5 rounded-xl dark:hs-tab-active:bg-neutral-700 "
-                    id="tabs-with-card-item-3"
-                    data-hs-tab="#tabs-with-card-3"
-                    aria-controls="tabs-with-card-3"
-                    role="tab"
-                  >
-                    <span className="flex">
-                      <svg
-                        className="flex-shrink-0 mt-2 size-6 md:size-7 hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-                        <path d="M5 3v4" />
-                        <path d="M19 17v4" />
-                        <path d="M3 5h4" />
-                        <path d="M17 19h4" />
-                      </svg>
-                      <span className="grow ms-6">
-                        <span className="block text-lg font-semibold hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white" data-aos="fade-left">
-                          Powerful features
-                        </span>
-                        <span className="block mt-1 text-white dark:hs-tab-active:text-[#bebae0] dark:text-white" data-aos="fade-left">
-                          Reduce time and effort on building modern look design with Preline only.
+                    </button>
+
+                    <button
+                      type="button"
+                      className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-[#bebae0] p-4 md:p-5 rounded-xl dark:hs-tab-active:bg-neutral-700 "
+                      id="tabs-with-card-item-2"
+                      data-hs-tab="#tabs-with-card-2"
+                      aria-controls="tabs-with-card-2"
+                      role="tab"
+                    >
+                      <span className="flex">
+                        <svg
+                          className="flex-shrink-0 mt-2 size-6 md:size-7 hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path d="m12 14 4-4" />
+                          <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+                        </svg>
+                        <span className="grow ms-6">
+                          <span className="block text-lg font-semibold hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white" data-aos="fade-left">
+                            Smart dashboards
+                          </span>
+                          <span className="block mt-1 text-white dark:hs-tab-active:text-[#bebae0] dark:text-white" data-aos="fade-left">
+                            Quickly Preline sample components, copy-paste codes, and start right off.
+                          </span>
                         </span>
                       </span>
-                    </span>
-                  </button>
-                </nav>
-                {/* End Tab Navs */}
-              </div>
-        
-              {/* Tab Content */}
-              <div className="lg:col-span-6">
-                <div className="relative">
-                  <div
-                    id="tabs-with-card-1"
-                    role="tabpanel"
-                    aria-labelledby="tabs-with-card-item-1"
-                    data-aos="fade-right"
-                  >
-                    <img src={STAFF} alt="" />
-                  </div>
-        
-                  <div
-                    id="tabs-with-card-2"
-                    className="hidden"
-                    role="tabpanel"
-                    aria-labelledby="tabs-with-card-item-2"
-                  >
-                    <img
-                      className="shadow-xl shadow-[#bebae0] rounded-xl dark:shadow-gray-900/20"
-                      src="https://images.unsplash.com/photo-1665686306574-1ace09918530?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&h=1220&q=80"
-                      alt="Image Description"
-                    />
-                  </div>
-        
-                  <div
-                    id="tabs-with-card-3"
-                    className="hidden"
-                    role="tabpanel"
-                    aria-labelledby="tabs-with-card-item-3"
-                  >
-                    <img
-                      className="shadow-xl shadow-[#bebae0] rounded-xl dark:shadow-gray-900/20"
-                      src="https://images.unsplash.com/photo-1598929213452-52d72f63e307?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&w=400"
-                      alt="Image Description"
-                    />
+                    </button>
+
+                    <button
+                      type="button"
+                      className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-[#bebae0] p-4 md:p-5 rounded-xl dark:hs-tab-active:bg-neutral-700 "
+                      id="tabs-with-card-item-3"
+                      data-hs-tab="#tabs-with-card-3"
+                      aria-controls="tabs-with-card-3"
+                      role="tab"
+                    >
+                      <span className="flex">
+                        <svg
+                          className="flex-shrink-0 mt-2 size-6 md:size-7 hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                          <path d="M5 3v4" />
+                          <path d="M19 17v4" />
+                          <path d="M3 5h4" />
+                          <path d="M17 19h4" />
+                        </svg>
+                        <span className="grow ms-6">
+                          <span className="block text-lg font-semibold hs-tab-active:text-[#bebae0] text-white dark:hs-tab-active:text-blue-500 dark:text-white" data-aos="fade-left">
+                            Powerful features
+                          </span>
+                          <span className="block mt-1 text-white dark:hs-tab-active:text-[#bebae0] dark:text-white" data-aos="fade-left">
+                            Reduce time and effort on building modern look design with Preline only.
+                          </span>
+                        </span>
+                      </span>
+                    </button>
+                  </nav>
+                  {/* End Tab Navs */}
+                </div>
+
+                {/* Tab Content */}
+                <div className="lg:col-span-6">
+                  <div className="relative">
+                    <div
+                      id="tabs-with-card-1"
+                      role="tabpanel"
+                      aria-labelledby="tabs-with-card-item-1"
+                      data-aos="fade-right"
+                    >
+                      <img src={STAFF} alt="" />
+                    </div>
+
+                    <div
+                      id="tabs-with-card-2"
+                      className="hidden"
+                      role="tabpanel"
+                      aria-labelledby="tabs-with-card-item-2"
+                    >
+                      <img
+                        className="shadow-xl shadow-[#bebae0] rounded-xl dark:shadow-gray-900/20"
+                        src="https://images.unsplash.com/photo-1665686306574-1ace09918530?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&h=1220&q=80"
+                        alt="Image Description"
+                      />
+                    </div>
+
+                    <div
+                      id="tabs-with-card-3"
+                      className="hidden"
+                      role="tabpanel"
+                      aria-labelledby="tabs-with-card-item-3"
+                    >
+                      <img
+                        className="shadow-xl shadow-[#bebae0] rounded-xl dark:shadow-gray-900/20"
+                        src="https://images.unsplash.com/photo-1598929213452-52d72f63e307?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&w=400"
+                        alt="Image Description"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        
+
           {/* History*/}
           <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
             <div>
-              <p
-                className="inline-block px-3 bg-[#bebae0] py-px mb-4 text-lg font-semibold 
-              tracking-wider text-[#160a33] uppercase rounded-full"
-                data-aos="fade-right"
-              >
+            <p
+            className="inline-block px-3 text-white bg-purple-500 py-1 mb-4 text-lg 
+            font-semibold tracking-wider text-dark uppercase rounded-full transition-all
+             duration-300 ease-in-out"
+          >
                 History
               </p>
             </div>
@@ -573,12 +547,15 @@ export default function HeroSection() {
               className="home-works_line"
             >
               <div
-                className="home-works_scroll"
+                className="home-works-scroll"
                 id="home-works-scroll"
-                style={{ willChange: "width, height", height: "0%" }}
+                style={{
+                  willChange: "width, height",
+                  height: `${scrollHeight}%`, // Dynamically update height
+                }}
               ></div>
             </div>
-            <div className="w-layout-grid home-works_grid">
+            <div className="w-layout-grid home-works_grid" data-aos="fade-left">
               <div href="#enriched-data" className="home-works_time"></div>
               <div
                 id="w-node-c4fa7419-a618-f317-74f6-289de189c9f9-09d0b1db"
@@ -608,7 +585,7 @@ export default function HeroSection() {
                 </p>
               </div>
             </div>
-            <div className="w-layout-grid home-works_grid">
+            <div className="w-layout-grid home-works_grid" data-aos="fade-right">
               <div
                 id="w-node-_338164af-d662-40c7-a5d3-1d20fe1926e5-09d0b1db"
                 className="home-works_card is-right"
@@ -642,7 +619,7 @@ export default function HeroSection() {
                 className="home-works_time"
               ></div>
             </div>
-            <div className="w-layout-grid home-works_grid">
+            <div className="w-layout-grid home-works_grid" data-aos="fade-left">
               <div href="#enriched-data" className="home-works_time"></div>
               <div
                 id="w-node-_00a4eb8f-c2c7-62cd-4349-ffa1563188e5-09d0b1db"
@@ -672,7 +649,7 @@ export default function HeroSection() {
                 </p>
               </div>
             </div>
-            <div className="w-layout-grid home-works_grid">
+            <div className="w-layout-grid home-works_grid" data-aos="fade-right">
               <div
                 id="w-node-_6cdd7498-29ed-6c4e-12fb-4ec5717d1729-09d0b1db"
                 className="home-works_card is-right"
@@ -706,7 +683,7 @@ export default function HeroSection() {
                 className="home-works_time"
               ></div>
             </div>
-            <div className="w-layout-grid home-works_grid">
+            <div className="w-layout-grid home-works_grid" data-aos="fade-left">
               <div href="#enriched-data" className="home-works_time"></div>
               <div
                 id="w-node-_33a1fbac-ca3e-dc61-db65-b950bbcb13d7-09d0b1db"
@@ -736,7 +713,7 @@ export default function HeroSection() {
                 </p>
               </div>
             </div>
-            <div className="w-layout-grid home-works_grid">
+            <div className="w-layout-grid home-works_grid" data-aos="fade-right">
               <div
                 id="w-node-b016d507-07a7-b587-bd33-547c917d6a94-09d0b1db"
                 className="home-works_card is-right"
@@ -772,13 +749,13 @@ export default function HeroSection() {
             </div>
           </div>
           {/* pricing plan*/}
-          <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+          <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 mt-14">
             <div>
-              <p
-                className="inline-block px-3 bg-[#bebae0] py-px mb-4 text-lg font-semibold 
-              tracking-wider text-[#160a33] uppercase rounded-full"
-                data-aos="fade-right"
-              >
+            <p
+            className="inline-block px-3 text-white bg-purple-500 py-1 mb-4 text-lg 
+            font-semibold tracking-wider text-dark uppercase rounded-full transition-all
+             duration-300 ease-in-out"
+          >
                 Solution
               </p>
             </div>
@@ -971,11 +948,11 @@ export default function HeroSection() {
           {/* our team*/}
           <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 mt-28">
             <div>
-              <p
-                className="inline-block px-3 bg-[#bebae0] py-px mb-4 text-lg font-semibold 
-              tracking-wider text-[#160a33] uppercase rounded-full"
-                data-aos="fade-right"
-              >
+            <p
+            className="inline-block px-3 text-white bg-purple-500 py-1 mb-4 text-lg 
+            font-semibold tracking-wider text-dark uppercase rounded-full transition-all
+             duration-300 ease-in-out"
+          >
                 Meet Our Team
               </p>
             </div>
@@ -1023,11 +1000,11 @@ export default function HeroSection() {
           {/*testinomial*/}
           <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
             <div>
-              <p
-                className="inline-block px-3 bg-[#bebae0] py-px mb-4 text-lg font-semibold 
-            tracking-wider text-[#160a33] uppercase rounded-full"
-                data-aos="fade-right"
-              >
+            <p
+            className="inline-block px-3 text-white bg-purple-500 py-1 mb-4 text-lg 
+            font-semibold tracking-wider text-dark uppercase rounded-full transition-all
+             duration-300 ease-in-out"
+          >
                 Testinomials
               </p>
             </div>
@@ -1075,11 +1052,11 @@ export default function HeroSection() {
           {/* faq*/}
           <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 mt-7">
             <div>
-              <p
-                className="inline-block px-3 bg-[#bebae0] py-px mb-4 text-lg font-semibold 
-            tracking-wider text-[#160a33] uppercase rounded-full"
-                data-aos="fade-right"
-              >
+            <p
+            className="inline-block px-3 text-white bg-purple-500 py-1 mb-4 text-lg 
+            font-semibold tracking-wider text-dark uppercase rounded-full transition-all
+             duration-300 ease-in-out"
+          >
                 FAQ
               </p>
             </div>
@@ -1127,11 +1104,11 @@ export default function HeroSection() {
           {/* newsletter*/}
           <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
             <div>
-              <p
-                className="inline-block px-3 bg-[#bebae0] py-px mb-4 text-lg font-semibold 
-            tracking-wider text-[#160a33] uppercase rounded-full"
-                data-aos="fade-right"
-              >
+            <p
+            className="inline-block px-3 text-white bg-purple-500 py-1 mb-4 text-lg 
+            font-semibold tracking-wider text-dark uppercase rounded-full transition-all
+             duration-300 ease-in-out"
+          >
                 Newsletter
               </p>
             </div>

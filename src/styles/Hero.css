@@ -119,22 +119,7 @@
 }
 
 /* History */
-.home-works_line {
-  width: 100%;
-  height: 2px;
-  background: repeating-linear-gradient(
-    to right,
-    transparent,
-    transparent 4px,
-    white 4px,
-    white 8px
-  );
-  transition: background 0.5s ease-in-out;
-}
 
-.home-works_line.filled {
-  background: white;
-}
 
 .home-works_component {
   grid-column-gap: 6rem;
@@ -145,25 +130,20 @@
   display: flex;
   position: relative;
 }
+.home-works-scroll {
+  background-color: #947efb;
+  width: 1px;
+  height: 1%; /* Start at 1% */
+  margin-left: -1px;
+  transition: height 0.2s ease; /* Smooth height transition */
+}
+
 .home-works_line {
   z-index: 0;
-  border-left: 2px dashed rgba(255, 255, 255, 0.2);
+  border-left: 1px dashed rgba(255, 255, 255, 0.2);
   width: 1px;
   height: 100%;
   position: absolute;
-  transition: border-color 0.3s ease, border-style 0.3s ease;
-}
-
-#home-works-scroll {
-  width: 1px;
-  background-color: rgba(255, 255, 255, 0.2);
-  height: 0;
-  transition: height 0.3s ease, background-color 0.3s ease;
-}
-
-.solid-line {
-  background-color: purple;
-  background-image: none;
 }
 
 .home-works_grid {
@@ -750,4 +730,37 @@ h5, h6, p {
     font-size: 4vw; /* Larger font size for smaller screens */
     animation: scroll 15s linear infinite; /* Slower animation for smaller screens */
   }
+}
+.inline-block {
+  position: relative;
+  overflow: hidden;
+}
+
+.inline-block:hover {
+  color: #fff; /* Change text color on hover */
+  background-color: #8a4dff; /* Lighter shade of purple on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+}
+
+.inline-block:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff; /* White underline on hover */
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+
+.inline-block::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
 }

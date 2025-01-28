@@ -3,12 +3,20 @@ import React, { useEffect,useState } from "react";
 // import Helmet from "../components/Helmet.jsx";
 import { FaBriefcase } from "react-icons/fa";
 import Logo from "../assets/Visual.png";
-import year from '../assets/image-2.jpg'
+import year from '../assets/image-2.jpg';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import '../styles/about.css'
 
 export default function AboutUs() {
+  useEffect(() => {
+      AOS.init({
+        offset: 120,
+        delay: 0,
+        duration: 2000,
+        easing: "ease",
+      });
+    }, []);
    // Review section state and logic
     const [downloads, setDownloads] = useState(0);
     const [subscribers, setSubscribers] = useState(0);
@@ -30,32 +38,32 @@ export default function AboutUs() {
     2017: {
       title: "2017: Inception",
       text: "Driven by the desire to foster a nurturing space for tech-enthusiasts, GOK came into existence. Our journey began humbly in a friend's borrowed space, but our ambitions knew no bounds.",
-      image:"../assets/image-2.jpg", // Add your image URL here
+      image:year, 
     },
     2018: {
       title: "2018: Growth",
       text: "The year of expansion, as we started gaining traction and built lasting relationships with clients. Our team grew from 4 to 10 passionate members.",
-      image: {year},
+      image:year,
     },
     2019: {
       title: "2019: Recognition",
       text: "Marked by notable achievements and industry recognition, we set benchmarks with successful projects delivered globally.",
-      image: {year},
+      image:year,
     },
     2022: {
       title: "2022: Transformation",
       text: "Embracing innovation, we transformed our services and expanded our expertise into emerging technologies.",
-      image: {year},
+      image:year,
     },
     2023: {
       title: "2023: Excellence",
       text: "With 180+ employees, we delivered excellence to our esteemed clients, fostering growth and trust.",
-      image: {year},
+      image:year,
     },
     2024: {
       title: "2024: The Future",
       text: "Our vision for the future is brighter than ever, driven by innovation and a commitment to redefining boundaries in technology.",
-      image: {year},
+      image:year,
     },
   };
 
@@ -726,25 +734,25 @@ export default function AboutUs() {
         {/* Review Section */}
         <div className="container mt-10">
           <div className="row justify-content-center">
-            <div className="col-md-6 col-lg-3 mb-4">
+            <div className="col-md-6 col-lg-3 mb-4" data-aos="fade-up">
               <div className="about-item text-center glassmorphism11 latest-card">
                 <h2 className="large-text">{downloads}+</h2>
                 <p className="small-text">Downloads</p>
               </div>
             </div>
-            <div className="col-md-6 col-lg-3 mb-4">
+            <div className="col-md-6 col-lg-3 mb-4"  data-aos="fade-down">
               <div className="about-item text-center glassmorphism11 latest-card">
                 <h2 className="large-text">{subscribers}+</h2>
                 <p className="small-text">Subscribers</p>
               </div>
             </div>
-            <div className="col-md-6 col-lg-3 mb-4">
+            <div className="col-md-6 col-lg-3 mb-4"  data-aos="fade-up">
               <div className="about-item text-center glassmorphism11 latest-card">
                 <h2 className="large-text">{users}+</h2>
                 <p className="small-text">Users</p>
               </div>
             </div>
-            <div className="col-md-6 col-lg-3 mb-4">
+            <div className="col-md-6 col-lg-3 mb-4"  data-aos="fade-down">
               <div className="about-item text-center glassmorphism11 latest-card">
                 <h2 className="large-text">{cookies}+</h2>
                 <p className="small-text">Cookies</p>
@@ -755,7 +763,7 @@ export default function AboutUs() {
         {/* Other content*/}
         <div className="container my-24">
         <div className="row ">
-          <div className="col-md-6">
+          <div className="col-md-6" data-aos="fade-right">
             <h2 className="text-white text-5xl font-bold">Our Objectives</h2>
             <p className="object">
               We want to be part of creating a smarter world where technology brings people closer together.
@@ -781,7 +789,7 @@ export default function AboutUs() {
             </div>
           </div>
           <br/>
-          <div className="col-md-6 mt-28">
+          <div className="col-md-6 mt-28"  data-aos="fade-left">
             <h2 className="text-white text-5xl font-bold">Our Core Values</h2>
             <p className="text-white">
               A positive culture leads to outstanding accomplishments when employees work together with honesty, discipline, integrity, and loyalty towards common goals. 
@@ -805,7 +813,7 @@ export default function AboutUs() {
         {/* Other content card*/}
         <div className="timeline-container">
         <div className="content">
-          <div className="glass-card">
+          <div className="glass-card"  data-aos="fade-in">
             <h1 className="font-bold text-7xl">Our Journey Began With a Spark</h1>
             <h6>A Vision That Ignited the Flames of Progress!</h6>
             <h3 className="font-bold mt-10">{contentData[currentYear].title}</h3>
@@ -833,7 +841,7 @@ export default function AboutUs() {
         </div>
       </div>
         {/* newsletter*/}
-        <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 -mt-20">
+        <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 -mt-20"  data-aos="fade-right">
           <div>
             <p
               className="inline-block px-3 bg-[#bebae0] py-px mb-4 text-lg font-semibold 

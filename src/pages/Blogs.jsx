@@ -1,42 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/blog.css';
-import blog from '../assets/2.png'
+import blogImage1 from '../assets/2.png'; // Correct import for images
+import blogImage2 from '../assets/3.png';
+import blogImage3 from '../assets/4.png'
+
 const blogs = [
   {
     id: 1,
     title: 'First Blog Title',
     detail: 'This is the detail of the first blog.',
-    image: {blog},
+    image: blogImage1, // Correct reference for the image
   },
   {
     id: 2,
     title: 'Second Blog Title',
     detail: 'This is the detail of the second blog.',
-    image: '../assets/2.png',
+    image: blogImage2,
   },
   {
     id: 3,
     title: 'Third Blog Title',
     detail: 'This is the detail of the third blog.',
-    image: '../assets/3.png',
+    image: blogImage3,
   },
   {
     id: 4,
     title: 'Fourth Blog Title',
     detail: 'This is the detail of the fourth blog.',
-    image: {blog},
+    image: blogImage1,
   },
   {
     id: 5,
     title: 'Fifth Blog Title',
     detail: 'This is the detail of the fifth blog.',
-    image: '../assets/2.png',
+    image: blogImage2,
   },
   {
     id: 6,
     title: 'Sixth Blog Title',
     detail: 'This is the detail of the sixth blog.',
-    image: '../assets/3.png',
+    image: blogImage3,
   },
 ];
 
@@ -90,7 +93,7 @@ const BlogPage = () => {
         </div>
 
         {/* Main Featured Blog Detail */}
-        <div className="main-featured-blog ">
+        <div className="main-featured-blog">
           <img src={currentBlog.image} alt={currentBlog.title} />
           <div className="blog-content">
             <h1>{currentBlog.title}</h1>
@@ -104,8 +107,8 @@ const BlogPage = () => {
           <p className="text-left mt-2">
             Read our blogs to know what’s happening
           </p>
-          <div className="blog-grid mt-8 ">
-            {blogs.map((blog, index) => (
+          <div className="blog-grid mt-8">
+            {blogs.map((blog) => (
               <div className="blog-card unique-style glassmorphism1 latest-card" key={blog.id}>
                 <img src={blog.image} alt={blog.title} />
                 <div className="blog-details">
