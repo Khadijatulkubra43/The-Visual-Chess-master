@@ -1,128 +1,174 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 import '../styles/blog.css';
-import blogImage1 from '../assets/2.png'; // Correct import for images
-import blogImage2 from '../assets/3.png';
-import blogImage3 from '../assets/4.png'
 
-const blogs = [
+// Blog Images (If using images from src/assets/images/)
+import topic1 from "../assets/topic-1.png";
+import topic2 from "../assets/topic-2.png";
+import topic3 from "../assets/topic-3.png";
+import topic4 from "../assets/topic-4.png";
+import topic5 from "../assets/topic-5.png";
+
+// Hot Blogs Data
+const hotBlogs = [
+  { id: 1, title: "Sport", image: topic1 },
+  { id: 2, title: "Travel", image: topic2 },
+  { id: 3, title: "Design", image: topic3 },
+  { id: 4, title: "Tech", image: topic4 },
+  { id: 5, title: "Food", image: topic5 },
+];
+
+// All Blogs Data
+const allBlogs = [
   {
     id: 1,
-    title: 'First Blog Title',
-    detail: 'This is the detail of the first blog.',
-    image: blogImage1, // Correct reference for the image
+    title: "Self-observation is the first step of inner unfolding",
+    author: "Joseph",
+    date: "26 Nov 2022",
+    readTime: "3 min read",
+    image: topic1,
+    tags: ["#Travel", "#Lifestyle"],
   },
   {
     id: 2,
-    title: 'Second Blog Title',
-    detail: 'This is the detail of the second blog.',
-    image: blogImage2,
+    title: "Creative Minds and Their Endless Possibilities",
+    author: "Sophia",
+    date: "15 Aug 2023",
+    readTime: "6 min read",
+    image: topic2,
+    tags: ["#Design", "#Movie"],
   },
   {
     id: 3,
-    title: 'Third Blog Title',
-    detail: 'This is the detail of the third blog.',
-    image: blogImage3,
+    title: "The Art of Minimalism in Everyday Life",
+    author: "Michael",
+    date: "20 Sep 2023",
+    readTime: "5 min read",
+    image: topic3,
+    tags: ["#Design", "#Lifestyle"],
   },
   {
     id: 4,
-    title: 'Fourth Blog Title',
-    detail: 'This is the detail of the fourth blog.',
-    image: blogImage1,
+    title: "How Travel Changes Your Perspective",
+    author: "Emma",
+    date: "10 Jan 2024",
+    readTime: "7 min read",
+    image: topic4,
+    tags: ["#Nature", "#Travel"],
   },
   {
     id: 5,
-    title: 'Fifth Blog Title',
-    detail: 'This is the detail of the fifth blog.',
-    image: blogImage2,
-  },
-  {
-    id: 6,
-    title: 'Sixth Blog Title',
-    detail: 'This is the detail of the sixth blog.',
-    image: blogImage3,
+    title: "The Future of AI and Human Creativity",
+    author: "Daniel",
+    date: "5 Feb 2024",
+    readTime: "8 min read",
+    image: topic5,
+    tags: ["#Tech", "#AI"],
   },
 ];
 
-const BlogPage = () => {
-  const [currentBlogIndex, setCurrentBlogIndex] = useState(0);
-  const [titleIndex, setTitleIndex] = useState(0);
+const BlogSection = () => {
+  const [visibleBlogs, setVisibleBlogs] = useState(5);
 
-  useEffect(() => {
-    const blogInterval = setInterval(() => {
-      setCurrentBlogIndex((prevIndex) => (prevIndex + 1) % blogs.length);
-    }, 5000);
-
-    const titleInterval = setInterval(() => {
-      setTitleIndex((prevIndex) => (prevIndex + 1) % blogs.length);
-    }, 3000);
-
-    return () => {
-      clearInterval(blogInterval);
-      clearInterval(titleInterval);
-    };
-  }, []);
-
-  const currentBlog = blogs[currentBlogIndex];
-  const currentTitle = blogs[titleIndex].title;
+  const loadMoreBlogs = () => {
+    setVisibleBlogs((prev) => prev + 5);
+  };
 
   return (
-    <div>
-      <div className="container text-center mt-40">
-        <div>
-          <p className="inline-block px-3 text-white bg-purple-500 py-1 mb-4 text-lg font-semibold tracking-wider text-dark uppercase rounded-full">
-            Blogs
-          </p>
-        </div>
-        <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-light sm:text-4xl text-center mx-auto">
-          <span className="relative inline-block">
-            <span className="relative text-light">The</span>
-          </span> quick, brown fox jumps over a lazy dog
-        </h2>
-        <p className="text-base text-light md:text-lg">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          <br />
-          accusantium doloremque rem aperiam, eaque ipsa quae.
+    <div className="blog-section mt-40">
+      {/* Hot Blogs Slider */}
+      <div className="hot-blogs-container">
+      <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 -mt-20"  data-aos="fade-right">
+      <div>
+        <p
+          className="inline-block px-3 bg-[#bebae0] py-px mb-4 text-lg font-semibold 
+              tracking-wider text-[#160a33] uppercase rounded-full"
+          data-aos="fade-right"
+        >
+         Blogs
         </p>
       </div>
-
-      <div className="blog-page">
-        {/* Latest Blog Title Slider */}
-        <div className="title-slider">
-          <h2 className="text-white text-xl">Latest Blog</h2>
-          <p className="text-white">{currentTitle}</p>
-        </div>
-
-        {/* Main Featured Blog Detail */}
-        <div className="main-featured-blog">
-          <img src={currentBlog.image} alt={currentBlog.title} />
-          <div className="blog-content">
-            <h1>{currentBlog.title}</h1>
-            <p>{currentBlog.detail}</p>
-          </div>
-        </div>
-
-        {/* All Blogs Section */}
-        <div className="all-blogs">
-          <h2 className="text-left text-3xl text-white font-bold">What Else is Happening?</h2>
-          <p className="text-left mt-2">
-            Read our blogs to know what’s happening
-          </p>
-          <div className="blog-grid mt-8">
-            {blogs.map((blog) => (
-              <div className="blog-card unique-style glassmorphism1 latest-card" key={blog.id}>
+      <h2
+        className="max-w-lg mb-6 font-sans text-3xl font-bold 
+            leading-none tracking-tight text-[#bebae0] sm:text-4xl md:mx-auto"
+        data-aos="fade-right"
+      >
+        <span className="relative inline-block ">
+          <svg
+            viewBox="0 0 52 24"
+            fill="#bebae0"
+            className="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
+          >
+            <defs>
+              <pattern
+                id="2feffae2-9edf-414e-ab8c-f0e6396a0fc1"
+                x="0"
+                y="0"
+                width=".135"
+                height=".30"
+              >
+                <circle cx="1" cy="1" r=".7" />
+              </pattern>
+            </defs>
+            <rect
+              fill="url(#2feffae2-9edf-414e-ab8c-f0e6396a0fc1)"
+              width="52"
+              height="24"
+            />
+          </svg>
+          <span className="relative text-[#bebae0]">The</span>
+        </span>{" "}
+        quick, brown fox jumps over a lazy dog
+      </h2>
+      <p
+        className="text-base text-[#bebae0] md:text-lg"
+        data-aos="fade-right"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+        accusantium doloremque rem aperiam, eaque ipsa quae.
+      </p>
+    </div>
+        <Swiper modules={[Navigation]} navigation spaceBetween={15} slidesPerView={3}>
+          {hotBlogs.map((blog) => (
+            <SwiperSlide key={blog.id}>
+              <div className="hot-blog-card">
                 <img src={blog.image} alt={blog.title} />
-                <div className="blog-details">
-                  <h3>{blog.title}</h3>
-                  <p>{blog.detail}</p>
-                </div>
+                <p>{blog.title}</p>
               </div>
-            ))}
-          </div>
-          <button className="read-more-button">Read More</button>
-        </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
+
+      {/* Blog Grid */}
+      <div className="blog-grid">
+        {allBlogs.slice(0, visibleBlogs).map((article) => (
+          <div className="blog-card glassmorphism" key={article.id}>
+            <img src={article.image} alt={article.title} />
+            <div className="content">
+              <p className="tags">{article.tags.join(" ")}</p>
+              <h3>{article.title}</h3>
+              <p className="author">
+                {article.author} • {article.date}
+              </p>
+              <p className="read-time">{article.readTime}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Show More Button */}
+      {visibleBlogs < allBlogs.length && (
+        <button className="show-more" onClick={loadMoreBlogs}>
+          Show More Posts
+        </button>
+      )}
     </div>
   );
 };
 
-export default BlogPage;
+export default BlogSection;
+
